@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Clicker Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="loading-screen">
+        <h1>Welcome to Block Clicker Game!</h1>
+        <p>Loading...</p>
+    </div>
+
+    <div id="game-container" style="display: none;">
+       
+
+        <div id="container">
+            <div id="block-container">
+                <div id="block" onclick="clickBlock(event)">
+                    <div id="healthBar"></div>
+                </div>
+               
+                <div id="hp">HP: <span id="currentHP">10</span></div>
+                <div id="damage">Damage: <span id="damageAmount">1</span></div>
+                <div id="cashPerBlock">Cash per Block: <span id="cashPerBlockAmount">1</span></div>
+                <div id="cashPerSec">Cash per Second: <span id="cashPerSecondAmount">1</span></div>
+                <div id="autoDamage">Auto Damage: <span id="autoClickDamage">0</span></div>
+    
+    
+    
+            </div>
+        </div>
+        <div id="sidebar">
+            <div id="cash">Cash: <span id="cashAmount">0</span></div>
+            <div id="level">Level: <span id="currentLevel">1</span></div>
+            <div id="xp">XP: <span id="currentXP">0</span>/200</span></div>
+            <div id="prestige">Prestige Level: <span id="prestigeLevel">0</span></div>
+            <div id="prestigeMultiplier">prestigeMultiplier: <span id="prestigeMultiplier2">0</span></div>
+    
+        
+            <div id="upgradeContainer">
+                <button onclick="upgradeDamage()">Upgrade Damage (Cost: <span id="upgradeCostDamage">10</span>)</button>
+    <button onclick="upgradeCashPerBlock()">Upgrade Cash per Block (Cost: <span id="upgradeCostCash">10</span>)</button>
+    <button onclick="buyAutoClickUpgrade()">Buy Auto Click Upgrade (Cost: <span id="autoClickCost">10</span>)</button>
+    <button id="upgradeAutoClickDamage" onclick="upgradeAutoClickDamage()" disabled>Upgrade Auto Click Damage (+5) (Cost: <span id="upgradeCostAutoClickDamage">50</span>)</button>
+    <button id="upgradeCashPerBlock2" onclick="upgradeCashPerBlock2()" disabled>Upgrade Cash per Block (+5) (Cost: <span id="upgradeCostCash2">50</span>)</button>
+    <button id="upgradeAutoClickDamage2" onclick="upgradeAutoClickDamage2()" disabled>Upgrade Auto Click Damage (+10) (Cost: <span id="upgradeCostAutoClickDamage2">100</span>)</button>
+    <button id="upgradeDamage2" onclick="upgradeDamage2()" disabled>Upgrade Damage (+5) (Cost: <span id="upgradeCostDamage2">100</span>)</button>
+    <button id="upgradeCashPerBlock3" onclick="upgradeCashPerBlock3()" disabled>Upgrade Cash per Block (+10) (Cost: <span id="upgradeCostCash3">200</span>)</button>
+    <button id="upgradeDamage3" onclick="upgradeDamage3()" disabled>Upgrade Damage (+10) (Cost: <span id="upgradeCostDamage3">300</span>)</button>
+    <button id="upgradeCashPerBlock4" onclick="upgradeCashPerBlock4()" disabled>Upgrade Cash per Block (+20) (Cost: <span id="upgradeCostCash4">300</span>)</button>
+    <button id="upgradeAutoClickDamage3" onclick="upgradeAutoClickDamage3()" disabled>Upgrade Auto Click Damage (+20) (Cost: <span id="upgradeCostAutoClickDamage3">300</span>)</button>
+    <button id="upgradeDamage4" onclick="upgradeDamage4()" disabled>Upgrade Damage (+20) (Cost: <span id="upgradeCostDamage4">400</span>)</button>
+    <button id="upgradeAutoClickDamage4" onclick="upgradeAutoClickDamage4()" disabled>Upgrade Auto Click Damage (+40) (Cost: <span id="upgradeCostAutoClickDamage4">600</span>)</button>
+    <button id="upgradeCashPerBlock5" onclick="upgradeCashPerBlock5()" disabled>Upgrade Cash per Block (+40) (Cost: <span id="upgradeCostCash5">600</span>)</button>
+    <button id="upgradeDamage5" onclick="upgradeDamage5()" disabled>Upgrade Damage (+40) (Cost: <span id="upgradeCostDamage5">600</span>)</button>
+    <button id="upgradeAutoClickDamage5" onclick="upgradeAutoClickDamage5()" disabled>Upgrade Auto Click Damage (+60) (Cost: <span id="upgradeCostAutoClickDamage5">1000</span>)</button>
+    <button id="upgradeCashPerBlock6" onclick="upgradeCashPerBlock6()" disabled>Upgrade Cash per Block (+60) (Cost: <span id="upgradeCostCash6">1000</span>)</button>
+    <button id="prestigeButton" onclick="prestige()" disabled>Prestige</button>
+    <button id="PupgradeDamage1" onclick="PupgradeDamage1()" disabled>Upgrade Damage (+10) (Cost: <span id="PupgradeCostDamage1">400</span>)</button>
+    <button id="PupgradeCashPerBlock1" onclick="PupgradeCashPerBlock1()" disabled>Upgrade Cash per Block (+10) (Cost: <span id="PupgradeCostCash1">400</span>)</button>
+    <button id="upgradeCashPerSecond" onclick="upgradeCashPerSecond()" disabled>Upgrade Cash per Second (Cost: <span id="upgradeCostCashPerSec">100</span>)</button>
+    <button id="PupgradeAutoClickDamage1" onclick="PupgradeAutoClickDamage1()" disabled>Upgrade Auto Click Damage (+15) (Cost: <span id="PupgradeCostAutoClickDamage1">300</span>)</button>
+
+    
+    
+    
+    
+    
+                
+            </div>
+        </div>
+    
+        
+        
+    
+        
+        <div id="codeContainer">
+       
+       
+            <h2>Redeem Code</h2>
+            <input type="text" id="codeInput" placeholder="Enter your code">
+            <button onclick="redeemCode()">Redeem</button>
+            <button id="settingsBtn" onclick="toggleSettings()">Settings</button>
+    
+            <div id="settingsContainer" style="display: none;">
+                <h2>Settings</h2>
+                <button onclick="resetData()">Reset Data</button>
+                <button onclick="changeBackgroundColor()">Change Background Color</button>
+                <div id="backgroundColorPicker" style="display: none;">
+                    <input type="color" id="bgColorPicker">
+                    <button onclick="applyBackgroundColor()">Apply</button>
+                </div>
+                <button onclick="showSidebarColorPicker()">Change Sidebars Color</button>
+                <div id="sidebarColorPicker" style="display: none;">
+                    <input type="color" id="sidebarColorPickerInput">
+                    <button onclick="applySidebarAndCodeContainerColor()">Apply</button>
+                </div>
+                <div id="cash">Total Cash: <span id="totalcashAmount">0</span></div>
+                <div id="level">Total Level: <span id="cTotalLevel">1</span></div>
+                <div id="visitor-count">Visitors Total: <span id="count">238</span></div>
+                <p>Maded By Melted</p>
+                <p>V0.00.01.9</p>
+            </div>
+            
+     
+        </div>
+
+
+    </div>
+ 
+    <div id="terms-container" style="display: none;">
+        <h2>Terms of Use</h2>
+        <p>Please read and accept the terms of use before proceeding:</p>
+        <!-- Scrollable text box for terms -->
+        <div style="max-height: 150px; overflow-y: auto;">
+            <h2>Terms of Use</h2>
+            <p>By accessing this website, you agree to be bound by these terms of use.</p>
+            <p>If you do not agree with any part of these terms, you may not use this website.</p>
+            <h2>Use of Content</h2>
+            <p>stealing code/hacking is not allowed code is copyed righted by Melted</p>
+        </div>
+        <button onclick="acceptTerms()">Accept Terms</button>
+    </div>
+
+    <script src="GameHandler.js"></script>
+    <script src="UpgradeHandler.js"></script>
+    <script src="CodeHandler.js"></script>
+    <script src="DataHandler.js"></script>
+    <script src="Rebirths.js"></script>
+    <script src="setting.js"></script>
+    <script src="prestigeupgrades.js"></script>
+    <script src="sound.js"></script>
+
+    <script>
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Prevent the default right-click behavior
+        });
+    </script>
+
+<script>
+    // Simulate loading time
+    setTimeout(function() {
+        // Hide the loading screen
+        document.getElementById('loading-screen').style.display = 'none';
+        // Show the terms container
+        document.getElementById('terms-container').style.display = 'block';
+    }, 5000); // 5000 milliseconds (5 seconds) delay
+
+    function acceptTerms() {
+        // Hide the terms container
+        document.getElementById('terms-container').style.display = 'none';
+        // Show the game container
+        document.getElementById('game-container').style.display = 'block';
+        // Now, you can load your game or perform any necessary initialization
+        // For example, you can start loading assets or initialize game logic
+        initializeGame();
+    }
+
+    function initializeGame() {
+        // Perform any necessary initialization here
+        // For example, start loading assets, initialize game logic, etc.
+        // Once everything is loaded and ready, you can start the game
+    }
+</script>
+
+</body>
+</html>

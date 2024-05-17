@@ -1,0 +1,171 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+#block-container {
+    text-align: center;
+}
+
+.clicked {
+    transform: scale(0.9); 
+    transition: transform 0.2s; 
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading-screen {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+#terms-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    max-height: 300px; /* Set a maximum height for the container */
+
+}
+
+
+
+#block {
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#healthBar {
+    height: 10px;
+    background-color: green;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+body {
+   
+    background-color: #cf6d6d; 
+ 
+    
+
+    background-repeat: repeat; 
+  
+    background-size: cover; 
+ 
+    background-position: center; 
+ 
+
+}
+
+
+
+
+#sidebar {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20%;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#sidebar div {
+    margin-bottom: 10px;
+}
+
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#upgradeContainer {
+    max-height: 300px; 
+    overflow-y: auto;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+#codeContainer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f2f2f2;
+    padding: 5px 10px;
+    border-radius: 5px;
+    
+}
+
+
+button[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+
+#codeInput {
+    width: calc(100% - 20px);
+    margin-top: 5px;
+}
+
+.damage-popup {
+    position: absolute;
+    pointer-events: none; 
+    user-select: none; 
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    -khtml-user-select: none; 
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    z-index: 9999;
+    animation: fadeOut 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
